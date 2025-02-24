@@ -1,0 +1,57 @@
+<div class="col-md-4 offset-md-4 mt-5">
+    <h2 class="text-center">Edit Trip</h2>
+  
+    <form *ngIf="editForm" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Code:</label>
+        <input
+          type="text"
+          formControlName="code"
+          placeholder="Trip Code"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['code'].errors }"
+        />
+        <div *ngIf="submitted && f['code'].errors">
+          <div *ngIf="f['code'].errors?.['required']">Trip Code is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" formControlName="name" placeholder="Trip Name" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label>Length:</label>
+        <input type="text" formControlName="length" placeholder="Trip Length (e.g., 5 days)" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label>Start Date:</label>
+        <input type="date" formControlName="start" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label>Resort:</label>
+        <input type="text" formControlName="resort" placeholder="Resort Name" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label>Price per Person:</label>
+        <input type="number" formControlName="perPerson" placeholder="Price per person" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label>Image:</label>
+        <input type="text" formControlName="image" placeholder="Image Filename" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea formControlName="description" placeholder="Trip Description" class="form-control"></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-3">Update Trip</button>
+    </form>
+  </div>
+  
