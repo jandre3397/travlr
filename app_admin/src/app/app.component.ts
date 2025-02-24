@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router'; // Import RouterOutlet for routi
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet], // ✅ Removed TripListingComponent
+  imports: [CommonModule, RouterOutlet], // Removed TripListingComponent
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

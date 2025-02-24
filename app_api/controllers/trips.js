@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Trip = require('../models/travlr'); // Register the model
 
-// ✅ GET: /trips - lists all trips
+// GET: /trips - lists all trips
 const tripsList = async (req, res) => {
   try {
     const trips = await Trip.find({}).exec(); // Fetch all trip records
@@ -16,7 +16,7 @@ const tripsList = async (req, res) => {
   }
 };
 
-// ✅ GET: /trips/:tripCode - Get a single trip by its code
+//  GET: /trips/:tripCode - Get a single trip by its code
 const tripsFindByCode = async (req, res) => {
   try {
     const trip = await Trip.findOne({ code: req.params.tripCode }).exec(); // Fetch one trip
@@ -31,7 +31,7 @@ const tripsFindByCode = async (req, res) => {
   }
 };
 
-// ✅ POST: /trips - Add a new trip
+// POST: /trips - Add a new trip
 const tripsAddTrip = async (req, res) => {
   console.log("Adding trip:", req.body); // Debugging
 
@@ -54,7 +54,7 @@ const tripsAddTrip = async (req, res) => {
   }
 };
 
-// ✅ PUT: /trips/:tripCode - Update an existing trip
+// PUT: /trips/:tripCode - Update an existing trip
 const tripsUpdateTrip = async (req, res) => {
   console.log("Updating trip:", req.params); // Debugging trip code
   console.log("Data to update:", req.body); // Debugging new data
@@ -85,7 +85,7 @@ const tripsUpdateTrip = async (req, res) => {
   }
 };
 
-// ✅ Export all functions
+// Export all functions
 module.exports = {
   tripsList,         // List all trips
   tripsFindByCode,   // Find a trip by its code
