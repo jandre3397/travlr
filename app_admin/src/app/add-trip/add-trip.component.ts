@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // ✅ Import ReactiveFormsModule
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 import { Router } from '@angular/router';
 import { TripDataService } from '../services/trip-data.service';
 
 @Component({
   selector: 'app-add-trip',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // ✅ Add ReactiveFormsModule here
+  imports: [CommonModule, ReactiveFormsModule], // Add ReactiveFormsModule here
   templateUrl: './add-trip.component.html',
   styleUrls: ['./add-trip.component.css']
 })

@@ -20,7 +20,7 @@ const travel = async function (req, res, next) {
         }
         const json = await response.json();
 
-        console.log("✅ Trips Data Retrieved:", json); // Debugging output
+        console.log("Trips Data Retrieved:", json); // Debugging output
 
         // Additional error handling
         let message = null;
@@ -34,7 +34,7 @@ const travel = async function (req, res, next) {
         res.render("travel", { title: "Travlr Getaways", trips: json, message });
 
     } catch (err) {
-        console.error("❌ Error fetching trips data:", err.message);
+        console.error("Error fetching trips data:", err.message);
         res.status(500).send(err.message);
     }
 };

@@ -3,19 +3,19 @@
 <head>
    <meta charset="UTF-8">
    <title>{{title}}</title>
-   <link rel="stylesheet" href="/stylesheets/style.css">  <!-- ✅ Correct CSS Path -->
+   <link rel="stylesheet" href="/stylesheets/style.css">  <!-- Correct CSS Path -->
 </head>
 <body>
-   {{> header}}  <!-- ✅ Include the header partial -->
+   {{> header}}  <!-- Include the header partial -->
 
    <div id="background">
       <div id="page">
          <div id="contents">
-            {{{body}}}  <!-- ✅ This will be replaced by the page content -->
+            {{{body}}}  <!-- This will be replaced by the page content -->
          </div>
       </div>
    </div>
 
-   {{> footer}}  <!-- ✅ Include the footer partial -->
+   {{> footer}}  <!-- Include the footer partial -->
 </body>
 </html>

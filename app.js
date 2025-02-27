@@ -1,3 +1,6 @@
+// Load environment variables from .env file
+require('dotenv').config(); // Load environment variables
+
 // Required modules and dependencies
 var createError = require('http-errors');
 var express = require('express');
@@ -9,6 +12,10 @@ var cors = require('cors');  // Import CORS Middleware
 
 // Connect to MongoDB
 require('./app_api/models/db');
+
+// Wire in our authentication module
+var passport = require('passport');
+require('./app_api/config/passport'); // Load passport configuration
 
 // Import API Router
 var apiRouter = require('./app_api/routes/index');
@@ -25,7 +32,7 @@ var app = express();
 app.use(cors({
   origin: 'http://localhost:4200',  // Allow requests from Angular app
   methods: 'GET,POST,PUT,DELETE',   // Allow all necessary methods
-  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept'
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 }));
 
 // Explicitly allow all HTTP methods for API routes
@@ -47,6 +54,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize()); // Initialize Passport authentication
 
 // Set up routes for the application
 app.use('/', indexRouter);
@@ -57,6 +65,13 @@ app.use('/api', apiRouter);  // Attach API router for backend requests
 // Catch 404 errors and forward to the error handler
 app.use(function (req, res, next) {
   next(createError(404));
+});
+
+// Catch unauthorized error and create 401 response
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).json({ "message": err.name + ": " + err.message });
+  }
 });
 
 // Error handler

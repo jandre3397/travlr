@@ -15,15 +15,15 @@ const seedDB = async () => {
     try {
         await Trip.deleteMany({}); // Delete existing records
         await Trip.insertMany(trips); // Insert new seed data
-        console.log('✅ Database successfully seeded with trip data!');
+        console.log('Database successfully seeded with trip data!');
     } catch (error) {
-        console.error('❌ Error seeding database:', error);
+        console.error('Error seeding database:', error);
     }
 };
 
 // Close the MongoDB connection after seeding
 seedDB().then(async () => {
     await mongoose.connection.close();
-    console.log('✅ MongoDB connection closed.');
+    console.log('MongoDB connection closed.');
     process.exit(0);
 });

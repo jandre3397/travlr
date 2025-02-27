@@ -6,13 +6,13 @@
       {{ trip.resort }}, {{ trip.stars }} stars
     </h6>
     <p class="card-subtitle mt-3 mb-3 text-muted">
-      {{ trip.length }} / {{ trip.days }} days only {{ trip.perPerson | currency:'USD':'symbol' }} per person
+      {{ trip.length }} days only {{ trip.perPerson | currency:'USD':'symbol' }} per person
     </p>
     <p class="card-text flex-grow-1" [innerHTML]="trip.description"></p>
   </div>
 
-  <!-- Edit Trip Button -->
-  <div class="card-footer">
+  <!-- Edit Trip Button (Only Visible if Logged In) -->
+  <div class="card-footer" *ngIf="isLoggedIn()">
     <button (click)="editTrip(trip)" class="btn btn-info">Edit Trip</button>
   </div>
 </div>

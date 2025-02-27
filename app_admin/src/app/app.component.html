@@ -1,11 +1,5 @@
-<!-- Navigation Bar -->
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{ title }}</a>
-  </div>
-</nav>
+<app-navbar></app-navbar> <!-- Replaces static navigation bar -->
 
-<!-- Router Outlet for handling route-based rendering -->
-<div class="container mt-4">
-  <router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet> <!-- Handles routing dynamically -->
 </div>
