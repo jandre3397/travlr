@@ -1,4 +1,4 @@
-# README: Full Stack Development Reflection  
+Full Stack Development Reflection  
 
 In my full stack project, I used both Express HTML/JavaScript and an Angular single-page application (SPA). While Express handled basic server-side rendering, Angular provided a smoother, more interactive experience by reducing page reloads and improving state management.  
 
